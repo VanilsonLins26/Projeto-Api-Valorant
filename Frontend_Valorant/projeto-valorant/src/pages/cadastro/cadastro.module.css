@@ -1,0 +1,103 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f2f2f2;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 40px;
+    color: #333333;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 25px #00000026;
+    max-width: 50%;
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+.form button {
+    border-radius: 30px;
+    background-color: #666666;
+    height: 40px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+
+.form button:hover {
+    opacity: 0.6;
+}
+
+.form input {
+    border: 1px solid #cccccc;
+    border-radius: 30px;
+    height: 40px;
+    background-color: #f9f9f9;
+    color: #333333;
+    font-size: 14px;
+    padding-left: 10px;
+    outline: none;
+}
+
+.form input:focus {
+    border-color: #666666;
+    background-color: #ffffff;
+}
+
+.form ::placeholder {
+    color: #999999;
+    font-size: 12px;
+}
+
+.form button.login {
+    border: 2px solid #666666;
+    border-radius: 30px;
+    background-color: #ffffff;
+    height: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666666;
+}
+
+.form button.login:hover {
+    opacity: 0.6;
+}
+
+.form .link{
+    text-decoration: none;
+    color: #666666;
+
+}
+
+.form .linkLogin {
+    text-decoration: none;
+    border: 2px solid #666666;
+    border-radius: 30px;
+    background-color: #ffffff;
+    height: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form .linkLogin:hover {
+    opacity: 0.6;
+}

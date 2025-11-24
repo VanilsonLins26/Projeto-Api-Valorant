@@ -1,0 +1,32 @@
+.header .headerDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 70px;
+    border-bottom: 2px solid #dadada;
+    padding: 20px;
+}
+.header .headerDiv .logo{
+    height: 15%;
+    width: 15%;
+    padding-left: 20px;
+}
+
+.headerDiv h3 {
+    cursor: pointer;
+}
+
+.headerDiv h3:hover {
+    opacity: 0.8;
+}
+
+.headerDiv .logout{
+    margin-left: auto;
+    padding-right: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.logoutTitle {
+    text-decoration: none;
+}
