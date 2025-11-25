@@ -17,7 +17,7 @@ import java.util.List;
 @GrpcService
 public class ValorantGrpcService extends ValorantServiceGrpc.ValorantServiceImplBase {
 
-    @GrpcClient("authService")
+    @GrpcClient("auth-service")
     private AuthServiceGrpc.AuthServiceBlockingStub authClient;
 
     ApiService apiService = new ApiService();

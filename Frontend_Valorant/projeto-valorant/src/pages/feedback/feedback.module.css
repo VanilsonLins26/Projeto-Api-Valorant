@@ -1,0 +1,98 @@
+/* src/pages/feedback/feedback.module.css */
+
+.container {
+    min-height: 100vh;
+    background-color: #0f172a; /* Dark Navy */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+/* Glow Effects */
+.glowEffect {
+    position: absolute;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+}
+.glowGreen { background-color: rgba(34, 197, 94, 0.15); }
+.glowRed { background-color: rgba(239, 68, 68, 0.15); }
+.glowYellow { background-color: rgba(234, 179, 8, 0.15); }
+
+/* Card */
+.card {
+    background-color: #1f2937;
+    width: 100%;
+    max-width: 28rem;
+    border-radius: 1rem;
+    border: 1px solid #374151;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Ícone */
+.iconContainer {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    border: 4px solid;
+}
+
+.iconContainer svg { width: 2.5rem; height: 2.5rem; }
+
+/* Variações de Cor */
+.success { color: #22c55e; border-color: rgba(34, 197, 94, 0.2); background: rgba(34, 197, 94, 0.1); }
+.failure { color: #ef4444; border-color: rgba(239, 68, 68, 0.2); background: rgba(239, 68, 68, 0.1); }
+.pending { color: #eab308; border-color: rgba(234, 179, 8, 0.2); background: rgba(234, 179, 8, 0.1); }
+
+/* Textos */
+.title {
+    font-size: 1.875rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+}
+
+.message {
+    color: #9ca3af;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Botão */
+.button {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btnSuccess { background-color: #22c55e; color: #052e16; }
+.btnSuccess:hover { background-color: #16a34a; transform: translateY(-2px); }
+
+.btnFailure { background-color: #ef4444; color: white; }
+.btnFailure:hover { background-color: #dc2626; transform: translateY(-2px); }
+
+.btnPending { background-color: #eab308; color: #422006; }
+.btnPending:hover { background-color: #ca8a04; transform: translateY(-2px); }

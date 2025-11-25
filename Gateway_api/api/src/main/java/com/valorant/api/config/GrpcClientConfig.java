@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import auth.AuthServiceGrpc;
 import valorant.ValorantServiceGrpc;
 
+
 @Configuration
 public class GrpcClientConfig {
 

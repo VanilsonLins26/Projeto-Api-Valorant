@@ -29,5 +29,7 @@ public class UsuarioModel {
     @NotBlank
     private String senha;
 
+    private boolean Premium = false;
+
 
 }

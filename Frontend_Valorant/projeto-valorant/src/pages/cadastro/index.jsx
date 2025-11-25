@@ -1,21 +1,31 @@
 import styles from './cadastro.module.css'
 import api from '../../services/api'
 import { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 
 function Cadastro() {
+  const navigate = useNavigate();
 
   const inputNome = useRef()
   const inputEmail = useRef()
   const inputSenha = useRef()
 
   async function createUsers() {
+    try {
     await api.post('/auth/registrar', {
       nome: inputNome.current.value,
       email: inputEmail.current.value,
       senha: inputSenha.current.value
-    })
+    });
+
+      navigate('/login');
+
+      // eslint-disable-next-line no-unused-vars
+    } catch (err) {
+      alert("Erro ao cadastrar.");
+    }
+
   }
 
 

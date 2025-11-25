@@ -5,7 +5,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.58.0)",
+    value = "by gRPC proto compiler (version 1.60.0)",
     comments = "Source: auth.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class AuthServiceGrpc {
@@ -15,35 +15,66 @@ public final class AuthServiceGrpc {
   public static final java.lang.String SERVICE_NAME = "auth.AuthService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<auth.Auth.ValidateTokenRequest,
-      auth.Auth.ValidateTokenResponse> getValidateTokenMethod;
+  private static volatile io.grpc.MethodDescriptor<auth.ValidateTokenRequest,
+      auth.ValidateTokenResponse> getValidateTokenMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ValidateToken",
-      requestType = auth.Auth.ValidateTokenRequest.class,
-      responseType = auth.Auth.ValidateTokenResponse.class,
+      requestType = auth.ValidateTokenRequest.class,
+      responseType = auth.ValidateTokenResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<auth.Auth.ValidateTokenRequest,
-      auth.Auth.ValidateTokenResponse> getValidateTokenMethod() {
-    io.grpc.MethodDescriptor<auth.Auth.ValidateTokenRequest, auth.Auth.ValidateTokenResponse> getValidateTokenMethod;
+  public static io.grpc.MethodDescriptor<auth.ValidateTokenRequest,
+      auth.ValidateTokenResponse> getValidateTokenMethod() {
+    io.grpc.MethodDescriptor<auth.ValidateTokenRequest, auth.ValidateTokenResponse> getValidateTokenMethod;
     if ((getValidateTokenMethod = AuthServiceGrpc.getValidateTokenMethod) == null) {
       synchronized (AuthServiceGrpc.class) {
         if ((getValidateTokenMethod = AuthServiceGrpc.getValidateTokenMethod) == null) {
           AuthServiceGrpc.getValidateTokenMethod = getValidateTokenMethod =
-              io.grpc.MethodDescriptor.<auth.Auth.ValidateTokenRequest, auth.Auth.ValidateTokenResponse>newBuilder()
+              io.grpc.MethodDescriptor.<auth.ValidateTokenRequest, auth.ValidateTokenResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ValidateToken"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  auth.Auth.ValidateTokenRequest.getDefaultInstance()))
+                  auth.ValidateTokenRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  auth.Auth.ValidateTokenResponse.getDefaultInstance()))
+                  auth.ValidateTokenResponse.getDefaultInstance()))
               .setSchemaDescriptor(new AuthServiceMethodDescriptorSupplier("ValidateToken"))
               .build();
         }
       }
     }
     return getValidateTokenMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<auth.ActivatePremiumRequest,
+      auth.ActivatePremiumResponse> getActivatePremiumMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ActivatePremium",
+      requestType = auth.ActivatePremiumRequest.class,
+      responseType = auth.ActivatePremiumResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<auth.ActivatePremiumRequest,
+      auth.ActivatePremiumResponse> getActivatePremiumMethod() {
+    io.grpc.MethodDescriptor<auth.ActivatePremiumRequest, auth.ActivatePremiumResponse> getActivatePremiumMethod;
+    if ((getActivatePremiumMethod = AuthServiceGrpc.getActivatePremiumMethod) == null) {
+      synchronized (AuthServiceGrpc.class) {
+        if ((getActivatePremiumMethod = AuthServiceGrpc.getActivatePremiumMethod) == null) {
+          AuthServiceGrpc.getActivatePremiumMethod = getActivatePremiumMethod =
+              io.grpc.MethodDescriptor.<auth.ActivatePremiumRequest, auth.ActivatePremiumResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ActivatePremium"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  auth.ActivatePremiumRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  auth.ActivatePremiumResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AuthServiceMethodDescriptorSupplier("ActivatePremium"))
+              .build();
+        }
+      }
+    }
+    return getActivatePremiumMethod;
   }
 
   /**
@@ -96,9 +127,16 @@ public final class AuthServiceGrpc {
 
     /**
      */
-    default void validateToken(auth.Auth.ValidateTokenRequest request,
-        io.grpc.stub.StreamObserver<auth.Auth.ValidateTokenResponse> responseObserver) {
+    default void validateToken(auth.ValidateTokenRequest request,
+        io.grpc.stub.StreamObserver<auth.ValidateTokenResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getValidateTokenMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void activatePremium(auth.ActivatePremiumRequest request,
+        io.grpc.stub.StreamObserver<auth.ActivatePremiumResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getActivatePremiumMethod(), responseObserver);
     }
   }
 
@@ -131,10 +169,18 @@ public final class AuthServiceGrpc {
 
     /**
      */
-    public void validateToken(auth.Auth.ValidateTokenRequest request,
-        io.grpc.stub.StreamObserver<auth.Auth.ValidateTokenResponse> responseObserver) {
+    public void validateToken(auth.ValidateTokenRequest request,
+        io.grpc.stub.StreamObserver<auth.ValidateTokenResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getValidateTokenMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void activatePremium(auth.ActivatePremiumRequest request,
+        io.grpc.stub.StreamObserver<auth.ActivatePremiumResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getActivatePremiumMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -156,9 +202,16 @@ public final class AuthServiceGrpc {
 
     /**
      */
-    public auth.Auth.ValidateTokenResponse validateToken(auth.Auth.ValidateTokenRequest request) {
+    public auth.ValidateTokenResponse validateToken(auth.ValidateTokenRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getValidateTokenMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public auth.ActivatePremiumResponse activatePremium(auth.ActivatePremiumRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getActivatePremiumMethod(), getCallOptions(), request);
     }
   }
 
@@ -180,14 +233,23 @@ public final class AuthServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<auth.Auth.ValidateTokenResponse> validateToken(
-        auth.Auth.ValidateTokenRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<auth.ValidateTokenResponse> validateToken(
+        auth.ValidateTokenRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getValidateTokenMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<auth.ActivatePremiumResponse> activatePremium(
+        auth.ActivatePremiumRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getActivatePremiumMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_VALIDATE_TOKEN = 0;
+  private static final int METHODID_ACTIVATE_PREMIUM = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -207,8 +269,12 @@ public final class AuthServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_VALIDATE_TOKEN:
-          serviceImpl.validateToken((auth.Auth.ValidateTokenRequest) request,
-              (io.grpc.stub.StreamObserver<auth.Auth.ValidateTokenResponse>) responseObserver);
+          serviceImpl.validateToken((auth.ValidateTokenRequest) request,
+              (io.grpc.stub.StreamObserver<auth.ValidateTokenResponse>) responseObserver);
+          break;
+        case METHODID_ACTIVATE_PREMIUM:
+          serviceImpl.activatePremium((auth.ActivatePremiumRequest) request,
+              (io.grpc.stub.StreamObserver<auth.ActivatePremiumResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -232,9 +298,16 @@ public final class AuthServiceGrpc {
           getValidateTokenMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              auth.Auth.ValidateTokenRequest,
-              auth.Auth.ValidateTokenResponse>(
+              auth.ValidateTokenRequest,
+              auth.ValidateTokenResponse>(
                 service, METHODID_VALIDATE_TOKEN)))
+        .addMethod(
+          getActivatePremiumMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              auth.ActivatePremiumRequest,
+              auth.ActivatePremiumResponse>(
+                service, METHODID_ACTIVATE_PREMIUM)))
         .build();
   }
 
@@ -284,6 +357,7 @@ public final class AuthServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new AuthServiceFileDescriptorSupplier())
               .addMethod(getValidateTokenMethod())
+              .addMethod(getActivatePremiumMethod())
               .build();
         }
       }

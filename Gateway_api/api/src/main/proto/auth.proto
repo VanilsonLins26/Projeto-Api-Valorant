@@ -2,8 +2,12 @@ syntax = "proto3";
 
 package auth;
 
+option java_multiple_files = true;
+option java_package = "auth";
+
 service AuthService {
   rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
+  rpc ActivatePremium (ActivatePremiumRequest) returns (ActivatePremiumResponse);
 
 }
 
@@ -13,4 +17,13 @@ message ValidateTokenRequest{
 
 message ValidateTokenResponse{
   bool isValid = 1;
+}
+
+message ActivatePremiumRequest {
+  int64 user_id = 1;
+}
+
+message ActivatePremiumResponse {
+  bool success = 1;
+  string message = 2;
 }

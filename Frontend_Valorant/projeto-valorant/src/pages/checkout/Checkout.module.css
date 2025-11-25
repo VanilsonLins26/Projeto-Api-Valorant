@@ -1,0 +1,202 @@
+/* checkout.module.css */
+
+.container {
+    min-height: 100vh;
+    background-color: #0f172a; /* Dark Navy */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Efeitos de Fundo (Glow) */
+.glowEffect {
+    position: absolute;
+    width: 24rem;
+    height: 24rem;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.glowRed {
+    top: -10%;
+    left: -10%;
+    background-color: rgba(220, 38, 38, 0.2);
+}
+
+.glowBlue {
+    bottom: -10%;
+    right: -10%;
+    background-color: rgba(37, 99, 235, 0.1);
+}
+
+/* O Card do Checkout */
+.card {
+    background-color: #1f2937; /* Gray 800 */
+    width: 100%;
+    max-width: 28rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid #374151;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+.headerStripe {
+    height: 0.5rem;
+    width: 100%;
+    background: linear-gradient(to right, #ef4444, #b91c1c);
+}
+
+.content {
+    padding: 2rem;
+}
+
+/* Títulos */
+.headerSection {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.headerTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+.headerSubtitle {
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* Aviso Amarelo */
+.warningBox {
+    background-color: rgba(55, 65, 81, 0.5);
+    border-left: 4px solid #eab308;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.warningIcon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #eab308;
+}
+
+.warningTitle {
+    color: #eab308;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.warningText {
+    color: #d1d5db;
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+/* Resumo da Compra */
+.summaryBox {
+    background-color: rgba(17, 24, 39, 0.5);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.totalRow {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #374151;
+    margin-bottom: 0;
+}
+
+/* Utilitários de texto dentro do módulo */
+.textWhite { color: white; }
+.textGray { color: #d1d5db; }
+.textGreen { color: #4ade80; font-weight: 500; font-size: 0.875rem; }
+.fontBold { font-weight: 700; }
+.textLarge { font-size: 1.25rem; }
+.textXLarge { font-size: 1.5rem; }
+.textSmall { font-size: 0.875rem; }
+
+/* Botão */
+.payButton {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    cursor: pointer;
+    background-color: #dc2626;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payButton:hover:not(:disabled) {
+    background-color: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.3);
+}
+
+.payButton:disabled {
+    background-color: #4b5563;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Spinner */
+.spinner {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 3px solid rgba(255,255,255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 0.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Footer */
+.secureFooter {
+    margin-top: 1.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #6b7280;
+    font-size: 0.75rem;
+}
+
+.secureIcon { width: 1rem; height: 1rem; }

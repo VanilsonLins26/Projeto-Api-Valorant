@@ -26,4 +26,10 @@ public class UsuarioService {
                 .filter(user -> passwordEncoder.matches(senha, user.getSenha()))
                 .orElse(null);
     }
+
+    public Boolean SetPremium(Long id) {
+        UsuarioModel user = usuarioRepository.findById(id).orElseThrow();
+        user.setPremium(true);
+        return usuarioRepository.save(user).isPremium();
+    }
 }

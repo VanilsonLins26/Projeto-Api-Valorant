@@ -17,7 +17,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor
@@ -47,7 +49,7 @@ public class MercadoPagoClient {
                             .id(item.Id())
                             .title(item.title())
                             .quantity(item.days())
-                            .unitPrice(item.unitPrice())
+                            .unitPrice(new BigDecimal(item.unitPrice().toPlainString()))
                             .build())
                     .toList();
 
@@ -66,13 +68,14 @@ public class MercadoPagoClient {
                     .items(items)
                     .payer(payer)
                     .backUrls(backUrlsRequest)
-                    .externalReference(orderNumber)
-                    //.autoReturn(inputData.autoReturn().toLowerCase()) // usa o valor do DTO
+                    .externalReference(inputData.userId() +"_" + UUID.randomUUID())
+                    .autoReturn("approved")
+                    .notificationUrl(this.notificationUrl)
                     .build();
 
             Preference preference = preferenceClient.create(preferenceRequest);
 
-            log.info("Preferência criada com sucesso no Mercado Pago: {} e {}", preference.getId(), preference.getInitPoint());
+            log.info("Preferência criada com sucesso no Mercado Pago: {} e {} e {}", preference.getId(), preference.getInitPoint(), preferenceRequest.getExternalReference());
 
             return new CreateResponseDTO(
                     preference.getId(),
@@ -81,12 +84,12 @@ public class MercadoPagoClient {
 
         }
         catch (MPApiException apiException) {
-            // Captura a exceção da API
+
             log.error("Erro ao criar preferência no Mercado Pago na api: Api error. Check response for details");
             log.error("Status da resposta da API: {}", apiException.getStatusCode());
             log.error("Conteúdo da resposta da API (corpo JSON): {}", apiException.getApiResponse().getContent());
 
-            // Re-lança a exceção para que ela possa ser tratada em outro lugar
+
             throw apiException;
         }
         catch (MPException e){

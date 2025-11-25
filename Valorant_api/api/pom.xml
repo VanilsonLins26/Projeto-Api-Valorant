@@ -13,9 +13,9 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>ProjetoIntegracao</artifactId>
+	<artifactId>ValorantService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ProjetoIntegracao</name>
+	<name>ValorantService</name>
 
 	<properties>
 		<java.version>21</java.version>

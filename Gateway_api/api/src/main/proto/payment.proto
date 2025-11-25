@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package payment;
+
+option java_multiple_files = true;
+option java_package = "com.exemplo.payment.grpc";
+
+service PaymentGrpcService {
+  rpc CreatePayment (PaymentRequest) returns (PaymentResponse);
+  rpc ProcessWebhook (WebhookRequest) returns (WebhookResponse);
+}
+
+message PaymentRequest {
+  int64 user_id = 1;
+  string email = 2;
+  double total_amount = 3;
+  string title = 4;
+}
+
+message PaymentResponse {
+  string payment_url = 1;
+}
+message WebhookRequest {
+  string id = 1;
+  string type = 2;
+}
+
+message WebhookResponse {
+  string status = 1;
+}

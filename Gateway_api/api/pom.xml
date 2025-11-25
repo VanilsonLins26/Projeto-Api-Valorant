@@ -20,15 +20,23 @@
 	<properties>
 		<java.version>21</java.version>
 
-		<!-- Protobuf: versão mais recente compatível com o plugin -->
-		<protobuf.version>3.21.12</protobuf.version>
+		<protobuf.version>3.25.1</protobuf.version>
 
-		<!-- Plugin do protobuf -->
 		<protobuf-plugin.version>0.6.1</protobuf-plugin.version>
 
-		<!-- Versão do gRPC -->
-		<grpc.version>1.58.0</grpc.version>
+		<grpc.version>1.63.0</grpc.version>
 	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.grpc</groupId>
+				<artifactId>grpc-bom</artifactId>
+				<version>${grpc.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<!-- SPRING -->
@@ -101,23 +109,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-netty-shaded</artifactId>
-			<version>1.51.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-protobuf</artifactId>
-			<version>1.51.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-stub</artifactId>
-			<version>1.51.0</version>
-		</dependency>
 
 		<dependency>
 			<groupId>javax.annotation</groupId>
@@ -128,14 +119,8 @@
 
 		<dependency>
 			<groupId>net.devh</groupId>
-			<artifactId>grpc-server-spring-boot-starter</artifactId>
-			<version>2.15.0.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>net.devh</groupId>
 			<artifactId>grpc-client-spring-boot-starter</artifactId>
-			<version>2.15.0.RELEASE</version>
+			<version>3.1.0.RELEASE</version> <!-- Mude de 2.15.0 para 3.1.0 -->
 		</dependency>
 
 		<!-- TESTES — FIX -->
