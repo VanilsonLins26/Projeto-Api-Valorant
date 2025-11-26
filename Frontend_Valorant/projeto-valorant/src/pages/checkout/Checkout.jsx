@@ -23,17 +23,13 @@ export const Checkout = () => {
         }
 
         try {
-            const response = await api.post("/validate/payment", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    userId: userId,
-                    totalAmount: 70.00,
-                    payer: { email: "cliente@teste.com" },
-                    items: [
-                        { title: "Pacote Conteúdo Valorant", quantity: 1, unit_price: 70.00 }
-                    ]
-                })
+            const response = await api.post("/validate/payment", { // Rota do Gateway
+                userId: userId,
+                totalAmount: 70.00,
+                payer: { email: "cliente@teste.com" },
+                items: [
+                    { title: "Pacote Conteúdo Valorant", quantity: 1, unit_price: 70.00 }
+                ]
             });
 
             if (!response.ok) {

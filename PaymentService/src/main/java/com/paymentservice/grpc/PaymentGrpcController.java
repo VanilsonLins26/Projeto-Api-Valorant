@@ -46,9 +46,9 @@ public class PaymentGrpcController extends PaymentGrpcServiceGrpc.PaymentGrpcSer
 
 
             CreatePreferenceRequestDTO.BackUrlsDTO backUrls = new CreatePreferenceRequestDTO.BackUrlsDTO(
-                    "http://localhost:5173/checkout/success",
-                    "http://localhost:5173failure",
-                    "http://localhost:5173/checkout/pending"
+                    "https://projeto-api-valorant.vercel.app/checkout/success",
+                    "https://projeto-api-valorant.vercel.app/checkout/failure",
+                    "https://projeto-api-valorant.vercel.app/checkout/pending"
             );
 
 
