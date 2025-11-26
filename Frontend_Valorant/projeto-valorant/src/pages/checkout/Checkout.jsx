@@ -35,12 +35,11 @@ export const Checkout = () => {
                 ]
             });
 
-            // 2. O Axios só chega aqui se o status for 2xx.
-            // O JSON retornado pelo Gateway está em response.data
+
             const data = response.data;
 
             if (data.redirectUrl) {
-                // Se o URL existe (e seu log mostra que existe), redireciona!
+
                 window.location.href = data.redirectUrl;
             } else {
                 throw new Error("URL de pagamento não recebida no formato esperado.");
