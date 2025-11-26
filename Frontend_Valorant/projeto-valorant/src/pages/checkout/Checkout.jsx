@@ -23,7 +23,10 @@ export const Checkout = () => {
         }
 
         try {
-            const response = await api.post("/validate/payment", { // Rota do Gateway
+            // 1. O Axios já faz o POST e retorna o objeto de resposta completo
+            const response = await api.post("/validate/payment", {
+                // Remova todas as chaves 'method', 'headers', 'body: JSON.stringify',
+                // e passe o objeto JS direto para o Axios
                 userId: userId,
                 totalAmount: 70.00,
                 payer: { email: "cliente@teste.com" },
@@ -32,21 +35,29 @@ export const Checkout = () => {
                 ]
             });
 
-            if (!response.ok) {
-                throw new Error("Falha na comunicação com o servidor.");
-            }
-
-            const data = await response.json();
+            // 2. O Axios só chega aqui se o status for 2xx.
+            // O JSON retornado pelo Gateway está em response.data
+            const data = response.data;
 
             if (data.redirectUrl) {
+                // Se o URL existe (e seu log mostra que existe), redireciona!
                 window.location.href = data.redirectUrl;
             } else {
-                alert("Erro: URL de pagamento não recebida.");
+                throw new Error("URL de pagamento não recebida no formato esperado.");
             }
 
         } catch (error) {
-            console.error(error);
-            alert("Ocorreu um erro ao iniciar o pagamento. Tente novamente.");
+            console.error("Erro Axios:", error);
+
+            // Se for erro 4xx/5xx do servidor, o Axios joga no catch
+            let errorMessage = "Ocorreu um erro ao iniciar o pagamento.";
+
+            if (error.response && error.response.data && error.response.data.message) {
+                errorMessage = error.response.data.message; // Pega o erro do Spring
+            }
+
+            alert(errorMessage);
+
         } finally {
             setLoading(false);
         }
