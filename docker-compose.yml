@@ -10,8 +10,6 @@ services:
     # VOLUME DO SQLITE:
     # Mapeia a pasta local ./Auth_api para dentro do container.
     # Assim o arquivo 'app.db' é salvo no seu Windows e não se perde.
-    volumes:
-      - ./Auth_api:/app
     expose:
       - "9092"
 
@@ -24,8 +22,6 @@ services:
     environment:
       # CORREÇÃO AQUI: A URL do Ngrok tem que ficar neste serviço!
       - API_V1_MERCADOPAGO_NOTIFICATION_URL=https://30c0256e79a8.ngrok-free.app/validate/webhook
-    volumes:
-      - ./PaymentService:/app # Persistência do SQLite (se tiver banco aqui tbm)
     expose:
       - "9093"
     depends_on:
@@ -37,8 +33,6 @@ services:
     container_name: valorant-service
     ports:
       - "8092:8092"
-    volumes:
-      - ./Valorant_api:/app # Persistência do SQLite
     expose:
       - "9091"
     depends_on:
