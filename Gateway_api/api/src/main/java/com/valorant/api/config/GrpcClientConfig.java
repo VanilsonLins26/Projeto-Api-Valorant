@@ -1,10 +1,10 @@
 package com.valorant.api.config;
+import com.example.auth.grpc.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import auth.AuthServiceGrpc;
 import valorant.ValorantServiceGrpc;
 
 

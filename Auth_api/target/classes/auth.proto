@@ -3,13 +3,20 @@ syntax = "proto3";
 package auth;
 
 option java_multiple_files = true;
-option java_package = "auth";
+
+option java_package = "com.example.auth.grpc";
 
 service AuthService {
+
   rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
   rpc ActivatePremium (ActivatePremiumRequest) returns (ActivatePremiumResponse);
 
+
+  rpc Login (LoginRequest) returns (LoginResponse);
+  rpc Register (RegisterRequest) returns (RegisterResponse);
 }
+
+
 
 message ValidateTokenRequest{
   string token = 1 ;
@@ -24,6 +31,30 @@ message ActivatePremiumRequest {
 }
 
 message ActivatePremiumResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string token = 1;
+  bool premium = 2;
+  int64 id = 3;
+  string error = 4;
+}
+
+message RegisterRequest {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+}
+
+message RegisterResponse {
   bool success = 1;
   string message = 2;
 }

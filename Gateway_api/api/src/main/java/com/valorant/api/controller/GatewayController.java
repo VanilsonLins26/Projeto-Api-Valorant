@@ -1,7 +1,8 @@
 package com.valorant.api.controller;
 
 
-import auth.*;
+
+import com.example.auth.grpc.*;
 import com.exemplo.payment.grpc.PaymentGrpcServiceGrpc;
 import com.exemplo.payment.grpc.PaymentRequest;
 import com.exemplo.payment.grpc.PaymentResponse;

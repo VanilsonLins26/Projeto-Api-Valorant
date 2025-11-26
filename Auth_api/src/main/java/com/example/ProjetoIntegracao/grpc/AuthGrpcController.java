@@ -1,17 +1,13 @@
 package com.example.ProjetoIntegracao.grpc;
 
 
-import auth.ActivatePremiumRequest;
-import auth.ActivatePremiumResponse;
-import auth.AuthServiceGrpc;
-import auth.ValidateTokenRequest;
-import auth.ValidateTokenResponse;
 
 
 import com.example.ProjetoIntegracao.auth.JwtUtil;
 import com.example.ProjetoIntegracao.service.UsuarioService;
 
 
+import com.example.auth.grpc.*;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import lombok.RequiredArgsConstructor;
